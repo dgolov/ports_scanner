@@ -22,7 +22,7 @@ class MassScan(ScannerBase):
 
     def run(self) -> Dict[str, List[str]]:
         """ Запуск masscan
-        :return:
+        :return: словать - ключ: хост, значение: список открытых портов
         """
         print(f"[+] Запускаем masscan на {self.subnet}...")
 
@@ -41,8 +41,8 @@ class MassScan(ScannerBase):
     @staticmethod
     def _parse_result(result: str) -> Dict[str, List[str]]:
         """ Парсинг результатов сканирования
-        :param result:
-        :return:
+        :param result: результаты сканирования
+        :return: словать - ключ: хост, значение: список открытых портов
         """
         open_ports_by_ip = {}
 
@@ -91,7 +91,7 @@ class NmapScan(ScannerBase):
     @staticmethod
     def _parse_result(result: str) -> List[Dict[str, str]]:
         """ Парсинг результатов сканирования
-        :param result:
+        :param result: результаты сканирования
         :return:
         """
         scanned_ports = []
