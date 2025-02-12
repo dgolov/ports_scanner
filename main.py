@@ -109,8 +109,8 @@ def run_scans() -> None:
     """
     scan_results = {}
 
-    subnet = input("[+] Укажите подсеть для сканирования > ")
-    masscan = MassScan(subnet=subnet, rate=8000)
+    target = input("[+] Укажите подсеть для сканирования > ")
+    masscan = MassScan(subnet=target, rate=8000)
     open_ports_by_ip = masscan.run()
     for ip, ports in open_ports_by_ip.items():
         nmap = NmapScan(ip_address=ip, ports=ports)
